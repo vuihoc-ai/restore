@@ -55,7 +55,7 @@ sudo -k
 ok "gói nền xong; sudo đã thu hồi"
 
 # ------------------------------------------------------------------ 2. GCP → identity + vault
-step "2. gcloud auth login  [CHẠM 2: đăng nhập Google trong browser]"
+step "2. gcloud auth login  [CHẠM 2: đăng nhập Google trong browser bằng $GCLOUD_ACCOUNT — KHÔNG phải marc.ng.work hay account công ty]"
 GC=$(command -v gcloud || echo /opt/homebrew/share/google-cloud-sdk/bin/gcloud)
 if ! "$GC" auth print-access-token --account="$GCLOUD_ACCOUNT" >/dev/null 2>&1; then
   "$GC" auth login "$GCLOUD_ACCOUNT" --brief >/dev/null

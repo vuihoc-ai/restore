@@ -1,5 +1,7 @@
 # restore — one command for a new Mac
 
+Say to Claude on any device: **"restore máy mới"** → it points here. Touch 2 logs in as **hello@vuihoc.ai**.
+
 Public on purpose: this repo holds **no secret**, only the order of operations. Everything
 private arrives after `gcloud auth login` (age identity + vault from GCP Secret Manager),
 then from the age vault, then from the private repos.
@@ -13,7 +15,7 @@ bash bootstrap.sh
 | touch | when | why |
 |---|---|---|
 | 1 | first minute | `sudo` for Xcode CLT + Homebrew, then `sudo -k` |
-| 2 | ~3 min | `gcloud auth login` in the browser (Google) |
+| 2 | ~3 min | `gcloud auth login` in the browser — Google account **hello@vuihoc.ai** (owns GCP project `tako-kb`: age identity + vault). Not marc.ng.work, not a company account. |
 | 3 | only if a Google profile was rejected | `taka-profiles.sh --login <p>` |
 
 Everything else is `~/.claude/restore/restore-all.sh` (claude-config): DR bundle, repos,
@@ -22,6 +24,6 @@ Re-run `restore-all.sh` any time; `--from P4` redoes from a phase.
 
 ## SHA256
 
-`bootstrap.sh` = `7a883a73d662aee4ebaa276d79a74752211c9501e22d534a5ba1502b5e04936e`
+`bootstrap.sh` = `e675338e1f4fd61e7dfba2be8c4e2c2e42bd9ce887402df05fc2140bffae24b0`
 
 Update this line whenever bootstrap.sh changes (`make sha`).
